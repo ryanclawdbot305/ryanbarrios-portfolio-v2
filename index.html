@@ -40,7 +40,6 @@
 
     a { color: inherit; text-decoration: none; }
 
-
     /* ── Nav ── */
     nav {
       position: fixed;
@@ -243,13 +242,6 @@
       filter: grayscale(0%);
       transform: scale(1.05);
     }
-
-    @media (max-width: 600px) {
-      .timeline-photo {
-        width: 90px;
-        height: 90px;
-      }
-    }
     .timeline-photo.captioned {
       margin-bottom: 0;
       border-radius: 8px 8px 0 0;
@@ -264,6 +256,13 @@
       text-align: center;
       line-height: 1.3;
       clear: right;
+    }
+
+    @media (max-width: 600px) {
+      .timeline-photo {
+        width: 90px;
+        height: 90px;
+      }
     }
 
     /* ── Tabs Section ── */
@@ -393,6 +392,44 @@
       box-shadow: 0 8px 30px rgba(255, 45, 45, 0.1);
     }
 
+    /* ── Racing Showcase ── */
+    .racing-showcase {
+      padding: 80px 60px;
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+    .racing-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 20px;
+      align-items: center;
+    }
+    .racing-photo-main img {
+      width: 100%;
+      height: 280px;
+      object-fit: cover;
+      border-radius: 12px;
+      display: block;
+    }
+    .racing-photo-side img {
+      width: 100%;
+      height: 130px;
+      object-fit: cover;
+      border-radius: 12px;
+      display: block;
+    }
+    .racing-text h3 {
+      font-size: 22px;
+      font-weight: 900;
+      margin-bottom: 14px;
+    }
+    .racing-text p {
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+
     /* ── Racing Marquee ── */
     .marquee-section {
       padding: 60px 0;
@@ -415,55 +452,6 @@
     @keyframes marquee {
       from { transform: translateX(0); }
       to { transform: translateX(-50%); }
-    }
-
-    /* ── Contact ── */
-    .contact-section {
-      padding: 100px 60px;
-      background: var(--surface);
-    }
-    .contact-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 3px;
-    }
-    .contact-card {
-      background: var(--surface2);
-      border: 1px solid var(--border);
-      padding: 32px 24px;
-      text-align: center;
-      cursor: pointer;
-      transition: all 0.2s;
-      position: relative;
-      overflow: hidden;
-    }
-    .contact-card::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 2px;
-      background: var(--accent);
-      transform: scaleX(0);
-      transition: transform 0.2s;
-    }
-    .contact-card:hover::before { transform: scaleX(1); }
-    .contact-card:hover { background: var(--bg); }
-    .contact-card .icon {
-      font-size: 28px;
-      margin-bottom: 16px;
-    }
-    .contact-card .label {
-      font-size: 10px;
-      font-weight: 700;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--text-muted);
-      margin-bottom: 8px;
-    }
-    .contact-card .value {
-      font-size: 13px;
-      font-weight: 600;
-      color: var(--text);
     }
 
     /* ── Projects ── */
@@ -544,6 +532,55 @@
       padding: 4px 12px;
     }
 
+    /* ── Contact ── */
+    .contact-section {
+      padding: 100px 60px;
+      background: var(--surface);
+    }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 3px;
+    }
+    .contact-card {
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      padding: 32px 24px;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.2s;
+      position: relative;
+      overflow: hidden;
+    }
+    .contact-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: var(--accent);
+      transform: scaleX(0);
+      transition: transform 0.2s;
+    }
+    .contact-card:hover::before { transform: scaleX(1); }
+    .contact-card:hover { background: var(--bg); }
+    .contact-card .icon {
+      font-size: 28px;
+      margin-bottom: 16px;
+    }
+    .contact-card .label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+    }
+    .contact-card .value {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text);
+    }
+
     /* ── Footer ── */
     footer {
       padding: 40px 60px;
@@ -567,20 +604,41 @@
       .roles-grid { grid-template-columns: 1fr; }
       .skill-row { flex-wrap: wrap; }
       .skill-cell { min-width: 45%; }
+      .racing-showcase { padding: 60px 24px; }
+      .racing-grid { grid-template-columns: 1fr; }
+      .racing-photo-main img { height: 200px; }
+      .racing-photo-side img { height: 180px; }
       .contact-section { padding: 60px 24px; }
       .contact-grid { grid-template-columns: 1fr 1fr; }
+      .projects-section { padding: 60px 24px; }
+      .section-title { font-size: 28px; }
+      .projects-grid { grid-template-columns: 1fr; }
+      .project-card { margin-bottom: 0; }
       footer { padding: 24px; flex-direction: column; gap: 12px; text-align: center; }
-
-    .projects-section { padding: 60px 24px; }
-    .section-title { font-size: 28px; }
-    .projects-grid { grid-template-columns: 1fr; }
-    .project-card { margin-bottom: 0; }
     }
   </style>
 </head>
 <body>
 
+<!-- NAV -->
+<nav id="nav">
+  <div class="nav-logo">RB<span>.</span></div>
+  <ul class="nav-links">
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#racing">Racing</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
 
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="hero-bg-text">RYAN</div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">Portfolio 2026</div>
+    <h1 class="hero-name">
+      Ryan<br>
+      <span class="line2">Barrios.</span>
     </h1>
     <div class="hero-role">
       <span class="dot"></span>
@@ -599,7 +657,6 @@
 <!-- TABS -->
 <section class="tabs-section" id="experience">
   <div class="tabs-label">Experience</div>
-
 
   <!-- Timeline -->
   <div id="timeline">
@@ -630,7 +687,7 @@
         <div class="timeline-year">Feb 2023 &mdash; Dec 2023</div>
         <h3>Platoon Leader</h3>
         <div class="sub">10th Mountain Division &mdash; Fort Drum, NY</div>
-        <p>Developed three Line-Of-Site and Beyond-Line-Of-Site teams from scratch in three months — all ranked #1, #2, and #3 out of 14 competing teams during training. Formally recognized by Senior Leaders. Oversaw technical readiness, equipment accountability, and operational performance across all three teams. Managed personnel development and mission planning while maintaining the highest rate of uninterrupted service time in the Brigade.</p>
+        <p>Developed three Line-Of-Sight and Beyond-Line-Of-Site teams from scratch in three months — all ranked #1, #2, and #3 out of 14 competing teams during training. Formally recognized by Senior Leaders. Oversaw technical readiness, equipment accountability, and operational performance across all three teams. Managed personnel development and mission planning while maintaining the highest rate of uninterrupted service time in the Brigade.</p>
       </div>
       <div class="timeline-item">
         <img src="photos/pt-competition.jpg" class="timeline-photo" alt="Executive Officer - 10th Mountain Division" loading="lazy" />
@@ -709,15 +766,9 @@
   </div>
 </section>
 
-
 <!-- RACING MARQUEE -->
-<div class="marquee-section" id="racing">
+<div class="marquee-section">
   <div class="marquee-track">
-    <span>BMW M2</span><span class="sep">&mdash;</span>
-    <span>Laguna Seca</span><span class="sep">&mdash;</span>
-    <span>Track Data</span><span class="sep">&mdash;</span>
-    <span>Pit Wall</span><span class="sep">&mdash;</span>
-    <span>Finding the Limit</span><span class="sep">&mdash;</span>
     <span>BMW M2</span><span class="sep">&mdash;</span>
     <span>Laguna Seca</span><span class="sep">&mdash;</span>
     <span>Track Data</span><span class="sep">&mdash;</span>
@@ -763,6 +814,7 @@
         </div>
         <span class="project-soon">In Progress</span>
       </div>
+    </div>
   </div>
 </section>
 
@@ -798,15 +850,11 @@
 </footer>
 
 <script>
-
-  // Nav scroll effect
   window.addEventListener('scroll', () => {
     const nav = document.getElementById('nav');
     nav.classList.toggle('scrolled', window.scrollY > 60);
   });
 
-  // Tab system
-  // Parallax on hero bg text
   window.addEventListener('scroll', () => {
     const bg = document.querySelector('.hero-bg-text');
     bg.style.transform = `translate(-50%, calc(-50% + ${window.scrollY * 0.15}px))`;
@@ -815,4 +863,3 @@
 
 </body>
 </html>
-

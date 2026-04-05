@@ -225,7 +225,7 @@
     }
 
     /* ── Timeline photo thumbnails ── */
-    .timeline-item { position: relative; }
+    .timeline-item { position: relative; overflow: hidden; }
     .timeline-photo {
       width: 180px;
       height: 180px;
@@ -243,24 +243,12 @@
       filter: grayscale(0%);
       transform: scale(1.05);
     }
-      position: relative;
-    }
-    .timeline-photo {
-      width: 90px;
-      height: 90px;
-      object-fit: cover;
-      border-radius: 8px;
-      float: right;
-      margin-left: 20px;
-      margin-bottom: 12px;
-      border: 1px solid var(--border);
-      filter: grayscale(15%);
-      transition: filter 0.2s, transform 0.2s;
-      cursor: pointer;
-    }
-    .timeline-photo:hover {
-      filter: grayscale(0%);
-      transform: scale(1.05);
+
+    @media (max-width: 600px) {
+      .timeline-photo {
+        width: 90px;
+        height: 90px;
+      }
     }
     .timeline-photo.captioned {
       margin-bottom: 0;

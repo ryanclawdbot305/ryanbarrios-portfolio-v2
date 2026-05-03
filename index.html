@@ -814,6 +814,18 @@
         </div>
         <span class="project-soon">In Progress</span>
       </div>
+      <div class="project-card">
+        <div class="project-icon">📸</div>
+        <h3>Family Archive</h3>
+        <p class="project-sub">Private Memory Wall</p>
+        <p class="project-desc">A private digital memory book for my family. Photos organized chronologically with search and filter by person or event. Photos tagged with who was there so you can find any moment instantly.</p>
+        <div class="project-tags">
+          <span>React</span>
+          <span>Supabase</span>
+          <span>Private</span>
+        </div>
+        <span class="project-soon">Coming Soon</span>
+      </div>
     </div>
   </div>
 </section>
@@ -858,6 +870,78 @@
   window.addEventListener('scroll', () => {
     const bg = document.querySelector('.hero-bg-text');
     bg.style.transform = `translate(-50%, calc(-50% + ${window.scrollY * 0.15}px))`;
+  });
+  /* Lightbox */
+  .lightbox {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    background: rgba(0,0,0,0.95);
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    cursor: pointer;
+  }
+  .lightbox.active { display: flex; }
+  .lightbox img {
+    max-width: 100%;
+    max-height: 90vh;
+    object-fit: contain;
+    border-radius: 8px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+    cursor: default;
+  }
+  .lightbox-close {
+    position: fixed;
+    top: 20px;
+    right: 24px;
+    font-size: 32px;
+    color: #fff;
+    cursor: pointer;
+    z-index: 1001;
+    line-height: 1;
+    padding: 4px 12px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 6px;
+    transition: background 0.2s;
+  }
+  .lightbox-close:hover { background: rgba(255,255,255,0.25); }
+</script>
+
+<!-- Lightbox -->
+<div id="lightbox" class="lightbox" onclick="closeLightbox()">
+  <span class="lightbox-close" onclick="event.stopPropagation(); closeLightbox()">✕</span>
+  <img id="lightbox-img" src="" alt="" />
+</div>
+
+<script>
+  function openLightbox(src, alt) {
+    const lb = document.getElementById('lightbox');
+    const img = document.getElementById('lightbox-img');
+    img.src = src;
+    img.alt = alt;
+    lb.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeLightbox() {
+    const lb = document.getElementById('lightbox');
+    lb.classList.remove('active');
+    document.body.style.overflow = '';
+    setTimeout(() => {
+      document.getElementById('lightbox-img').src = '';
+    }, 300);
+  }
+
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') closeLightbox();
+  });
+
+  // Attach click handlers to all timeline photos
+  document.querySelectorAll('.timeline-photo').forEach(img => {
+    img.addEventListener('click', () => openLightbox(img.src, img.alt));
+    img.style.cursor = 'zoom-in';
   });
 </script>
 
